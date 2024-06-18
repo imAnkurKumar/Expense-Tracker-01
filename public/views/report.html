@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Financial Reports Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/report.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="homePage.html">Expense Tracker</a>
+      </div>
+      <div class="navbar-links">
+        <a href="loginPage.html">Login</a>
+        <a href="signUp.html">Sign Up</a>
+      </div>
+    </nav>
+    <header class="hero">
+      <div class="hero-text">
+        <h1>Explore Your Financial Reports</h1>
+      </div>
+    </header>
+    <main>
+      <div class="content-wrapper">
+        <section class="report-section">
+          <h1>DAILY REPORTS</h1>
+          <form>
+            <div class="form-group">
+              <label for="date">Select Date</label>
+              <input type="date" id="date" required />
+              <button type="submit" id="showDailyReport">Show</button>
+            </div>
+          </form>
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyDailyId"></tbody>
+            <tfoot id="tfootDailyId"></tfoot>
+          </table>
+        </section>
+
+        <section class="report-section">
+          <h1>WEEKLY REPORTS</h1>
+          <form>
+            <div class="form-group">
+              <label for="week">Select Week</label>
+              <input type="week" id="week" required />
+              <button type="submit" id="showWeeklyReport">Show</button>
+            </div>
+          </form>
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyWeeklyId"></tbody>
+            <tfoot id="tfootWeeklyId"></tfoot>
+          </table>
+        </section>
+
+        <section class="report-section">
+          <h1>MONTHLY REPORTS</h1>
+          <form>
+            <div class="form-group">
+              <label for="month">Select Month</label>
+              <input type="month" id="month" required />
+              <button type="submit" id="showMonthlyReport">Show</button>
+            </div>
+          </form>
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyMonthlyId"></tbody>
+            <tfoot id="tfootMonthlyId"></tfoot>
+          </table>
+        </section>
+
+        <section class="report-section">
+          <h1>YEARLY REPORTS</h1>
+          <form>
+            <div class="form-group">
+              <label for="year-input" class="form-label">Select Year</label>
+              <input
+                type="number"
+                id="year-input"
+                name="year-input"
+                min="1900"
+                max="2100"
+                step="1"
+                required
+              />
+              <button type="submit" id="showYearlyReport">Show</button>
+            </div>
+          </form>
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyId"></tbody>
+            <tfoot id="tfootYearlyId"></tfoot>
+          </table>
+        </section>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <script src="/js/report.js"></script>
+  </body>
+</html>

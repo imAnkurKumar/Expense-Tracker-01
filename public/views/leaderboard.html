@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker - Leaderboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/leaderboard.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="homePage.html">Expense Tracker</a>
+      </div>
+      <div class="navbar-links">
+        <a href="loginPage.html">Login</a>
+        <a href="signUp.html">Sign Up</a>
+      </div>
+    </nav>
+    <header class="hero">
+      <div class="hero-text">
+        <h1>Leaderboard</h1>
+        <p>See how you rank against other users</p>
+      </div>
+    </header>
+    <main>
+      <div class="content-wrapper">
+        <section class="leaderboard">
+          <h2>Top Spenders</h2>
+          <ul id="leaderboard-list"></ul>
+        </section>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <script src="/js/leaderboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker - Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/loginPage.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <h1>Login</h1>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="input-icon">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" name="password" required />
+            </div>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <a href="../views/forgotPassword.html" id="forgot-password-link"
+          >Forgot Password?</a
+        >
+        <div class="signup-link">
+          <p>Don't have an account? <a href="signUp.html">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <script src="/js/loginPage.js"></script>
+  </body>
+</html>
