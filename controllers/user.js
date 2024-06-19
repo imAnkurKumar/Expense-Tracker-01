@@ -11,14 +11,12 @@ function generateAccessToken(id, email, isPremiumUser) {
 }
 
 const getSignUpPage = (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../", "public", "views", "signUp.html"));
-};
-const getLoginPage = (req, res, next) => {
-  res.sendFile(
-    path.join(__dirname, "../", "public", "views", "loginPage.html")
-  );
+  res.sendFile(path.join(__dirname, "../views", "signUp.html"));
 };
 
+const getLoginPage = (req, res, next) => {
+  res.sendFile(path.join(__dirname, "../views", "loginPage.html"));
+};
 const postUserSignUp = async (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;

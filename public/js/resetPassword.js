@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (res.status === 200) {
         alert(res.data.message);
       }
-      window.location.href = "../views/loginPage.html";
+      window.location.href = "/loginPage.html";
     } catch (error) {
       console.log(error);
       alert("Failed to reset password. Please try again.");

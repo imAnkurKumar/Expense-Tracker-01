@@ -1,11 +1,13 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
-const app = express();
 
+const fs = require("fs");
+const morgan = require("morgan");
+
+const PORT = process.env.PORT;
 const userRouter = require("./routes/user");
 const expenseRouter = require("./routes/expense");
 const purchaseRouter = require("./routes/purchaseMemberRoute");
@@ -19,11 +21,19 @@ const Expense = require("./models/expense");
 const Order = require("./models/order");
 const ResetPassword = require("./models/resetPassword");
 
-app.use(cors());
-app.use(express.static(path.join(__dirname, "public")));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+const app = express();
 
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "views")));
+
+const accessLogStream = fs.createWriteStream(
+  path.join(__dirname, "access.log"),
+  { flags: "a" }
+);
+app.use(morgan("combined", { stream: accessLogStream }));
 app.use("/", userRouter);
 app.use("/user", userRouter);
 app.use("/", expenseRouter);
@@ -44,7 +54,9 @@ ResetPassword.belongsTo(User);
 
 sequelize
   .sync()
-  .then((result) => {
-    app.listen(3000);
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
   })
   .catch((err) => console.log(err));

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert("login successful: ", response.data.message);
         }
         localStorage.setItem("token", response.data.token);
-        window.location.href = "../views/homePage.html";
+        window.location.href = "/homePage.html";
         document.getElementById("email").value = "";
         document.getElementById("password").value = "";
       } catch (error) {

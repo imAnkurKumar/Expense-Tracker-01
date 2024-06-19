@@ -59,9 +59,7 @@ const resetPasswordPage = async (req, res) => {
   try {
     res
       .status(200)
-      .sendFile(
-        path.join(__dirname, "../", "public", "views", "resetPassword.html")
-      );
+      .sendFile(path.join(__dirname, "../views", "resetPassword.html"));
   } catch (error) {
     console.log(error);
   }

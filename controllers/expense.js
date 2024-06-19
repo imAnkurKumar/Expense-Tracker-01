@@ -6,7 +6,7 @@ const S3services = require("../services/S3services");
 const Download = require("../models/download");
 
 const getHomePage = (req, res) => {
-  res.sendFile(path.join(__dirname, "../", "public", "views", "homePage.html"));
+  res.sendFile(path.join(__dirname, "../views", "homePage.html"));
 };
 
 const downloadExpense = async (req, res) => {
@@ -81,7 +81,7 @@ const getExpenses = async (req, res) => {
       where: { userId: req.user.id },
       offset: offset,
       limit: limit,
-    });   
+    });
     res.json({ expenses, totalExpenses });
   } catch (error) {
     console.error("Error fetching expenses:", error);
