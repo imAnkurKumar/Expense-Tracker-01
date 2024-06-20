@@ -54,9 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const listItem = document.createElement("li");
     listItem.classList.add("expense-item");
     listItem.innerHTML = `
-      <span>${index + 1}. $${expense.amount} - ${expense.category} - ${
-      expense.description
-    }</span>
+      <span>${index}. $${expense.amount} - ${expense.category} - ${expense.description}</span>
       <button class="delete-btn" data-id="${expense.id}">
         <i class="fas fa-trash-alt"></i>
       </button>
@@ -83,8 +81,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
       const { expenses, totalExpenses } = response.data;
       elements.expenseList.innerHTML = "";
+      const startingIndex = (page - 1) * perPage + 1;
       expenses.forEach((expense, index) => {
-        elements.expenseList.appendChild(createExpenseItem(expense, index));
+        elements.expenseList.appendChild(
+          createExpenseItem(expense, startingIndex + index)
+        );
       });
       totalPages = Math.ceil(totalExpenses / perPage);
       elements.currentPageDisplay.innerHTML = `Page ${page} of ${totalPages}`;
@@ -107,7 +108,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
 
       if (response.status === 201) {
-        loadExpenses(currentPage); // Reload expenses for the current page
+        loadExpenses(currentPage);
         elements.expenseForm.reset();
         alert(response.data.message);
       }
@@ -127,7 +128,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
       if (response.status === 200) {
         alert(response.data.message);
-        loadExpenses(currentPage); // Reload expenses for the current page
+        loadExpenses(currentPage);
       }
     } catch (error) {
       console.error(

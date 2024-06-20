@@ -1,4 +1,4 @@
-/* body {
+body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
@@ -16,7 +16,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  padding: 20px; 
+  padding: 20px;
 }
 
 .form-container {
@@ -61,118 +61,6 @@
 
 .form-group input {
   width: calc(100% - 40px); 
-  padding: 10px 10px 10px 30px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.form-group input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.signup-link p {
-  margin-top: 15px;
-  color: #666;
-}
-
-.signup-link a {
-  color: #007bff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.signup-link a:hover {
-  color: #0056b3;
-}
-
-@media (max-width: 600px) {
-  .form-container {
-    padding: 20px;
-    max-width: 90%;
-  }
-} */
-
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f4f4f9; /* Soft background color */
-  color: #333;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  padding: 20px; /* Added padding for better responsiveness */
-}
-
-.form-container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  color: #333;
-}
-
-.form-container h1 {
-  margin-bottom: 20px;
-  font-size: 2em;
-  color: #007bff; /* Updated to match button color */
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  text-align: left;
-  color: #666;
-}
-
-.input-icon {
-  position: relative;
-}
-
-.input-icon i {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  color: #888;
-}
-
-.form-group input {
-  width: calc(100% - 40px); /* Adjusted width to fit inside container */
   padding: 10px 10px 10px 30px;
   border: 1px solid #ddd;
   border-radius: 5px;

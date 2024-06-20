@@ -15,7 +15,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     if (response.status === 201) {
       alert("Sign-up successful: " + response.data.message);
       window.location.href = "/loginPage.html";
-      // Clear input fields after successful signup
+      
       document.getElementById("username").value = "";
       document.getElementById("email").value = "";
       document.getElementById("password").value = "";

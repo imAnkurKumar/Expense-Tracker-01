@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const reportsController = require("../controllers/report");
 const userAuthentication = require("../middleware/auth");
+
 router.get("/getReportPage", reportsController.getReportPage);
 
 router.post(

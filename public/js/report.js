@@ -34,8 +34,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         { headers }
       );
       tbodyDaily.innerHTML = "";
-
-      // Update the table with the received data
       response.data.forEach((expense) => {
         totalAmount += expense.amount;
         const row = document.createElement("tr");
@@ -46,8 +44,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       `;
         tbodyDaily.appendChild(row);
       });
-
-      // Update the total amount in the footer
       tfootDaily.innerHTML = `
       <tr>
         <td></td>
@@ -59,12 +55,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.log("Getting errror>", err);
     }
   });
-
   showWeeklyButton.addEventListener("click", async (e) => {
     e.preventDefault();
     try {
       const selectedWeek = document.getElementById("week").value;
-
       let totalAmount = 0;
       const response = await axios.post(
         "http://localhost:3000/reports/weeklyReports",
@@ -72,8 +66,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         { headers }
       );
       tbodyWeekly.innerHTML = "";
-
-      // Update the table with the received data
       response.data.forEach((expense) => {
         totalAmount += expense.amount;
         const createdAt = new Date(expense.createdAt);
@@ -88,8 +80,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       `;
         tbodyWeekly.appendChild(row);
       });
-
-      // Update the total amount in the footer
       tfootWeekly.innerHTML = `
       <tr>
         <td></td>
@@ -107,17 +97,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     e.preventDefault();
     try {
       const selectedMonth = document.getElementById("month").value;
-
       const response = await axios.post(
         "http://localhost:3000/reports/monthlyReports",
         { month: selectedMonth },
         { headers }
       );
-
-      // Clear existing table data
       tbodyMonthly.innerHTML = "";
-
-      // Update the table with the received data
       let totalAmount = 0;
       response.data.forEach((expense) => {
         totalAmount += expense.amount;
@@ -133,8 +118,6 @@ document.addEventListener("DOMContentLoaded", async () => {
      `;
         tbodyMonthly.appendChild(row);
       });
-
-      // Update the total amount in the footer
       tfootMonthly.innerHTML = `
      <tr>
        <td></td>
@@ -157,12 +140,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         { year: selectedYear },
         { headers }
       );
-      console.log(response.data);
-
-      // Clear existing table data
       tbodyYearly.innerHTML = "";
-
-      // Update the table with the received data
       let totalAmount = 0;
       response.data.forEach((monthlyExpense) => {
         totalAmount += monthlyExpense.amount;
@@ -173,8 +151,6 @@ document.addEventListener("DOMContentLoaded", async () => {
      `;
         tbodyYearly.appendChild(row);
       });
-
-      // Update the total amount in the footer
       tfootYearly.innerHTML = `<tr>
     <td>Total</td>
     <td>${totalAmount}</td>

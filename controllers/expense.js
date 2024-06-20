@@ -95,14 +95,14 @@ const deleteExpense = async (req, res) => {
   try {
     const expenseId = req.params.id;
     const expense = await Expense.findOne({
-      where: { id: expenseId, userId: req.user.id }, // Check both ID and userId
+      where: { id: expenseId, userId: req.user.id }, 
     });
     if (!expense) {
       t.rollback();
       return res.status(404).json({ message: "Expense not found" });
     }
     const deletedAmount = expense.amount;
-    await expense.destroy({ transaction: t }); // Delete the expense
+    await expense.destroy({ transaction: t });
     const updateUser = await User.update(
       {
         totalExpenses: Number(req.user.totalExpenses) - Number(deletedAmount),

@@ -4,7 +4,7 @@ const path = require("path");
 const { Op } = require("sequelize");
 
 const getReportPage = (req, res) => {
-  res.sendFile("report.html", { root: "views" });
+  res.sendFile(path.join(__dirname, "../views", "report.html"));
 };
 const dailyReports = async (req, res) => {
   try {
