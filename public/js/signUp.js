@@ -6,7 +6,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const response = await axios.post("http://13.127.206.146:3000/user/signUp", {
+    const response = await axios.post("http://13.127.206.146/user/signUp", {
       name,
       email,
       password,

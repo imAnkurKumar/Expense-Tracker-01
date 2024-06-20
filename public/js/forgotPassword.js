@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value;
     try {
       const response = await axios.post(
-        "http://13.127.206.146:3000/password/forgotPassword",
+        "http://13.127.206.146/password/forgotPassword",
         {
           email,
         }
