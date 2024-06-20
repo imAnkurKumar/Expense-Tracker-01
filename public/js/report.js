@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const selectedDate = document.getElementById("date").value;
       let totalAmount = 0;
       const response = await axios.post(
-        "http://localhost:3000/reports/dailyReports",
+        "http://13.127.206.146:3000/reports/dailyReports",
         { date: selectedDate },
         { headers }
       );
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const selectedWeek = document.getElementById("week").value;
       let totalAmount = 0;
       const response = await axios.post(
-        "http://localhost:3000/reports/weeklyReports",
+        "http://13.127.206.146:3000/reports/weeklyReports",
         { week: selectedWeek },
         { headers }
       );
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       const selectedMonth = document.getElementById("month").value;
       const response = await axios.post(
-        "http://localhost:3000/reports/monthlyReports",
+        "http://13.127.206.146:3000/reports/monthlyReports",
         { month: selectedMonth },
         { headers }
       );
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       const selectedYear = document.getElementById("year-input").value;
       const response = await axios.post(
-        "http://localhost:3000/reports/yearlyReports",
+        "http://13.127.206.146:3000/reports/yearlyReports",
         { year: selectedYear },
         { headers }
       );

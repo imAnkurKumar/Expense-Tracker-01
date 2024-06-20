@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const res = await axios.post(
-        "http://localhost:3000/password/resetPassword",
+        "http://13.127.206.146:3000/password/resetPassword",
         {
           password: newPassword,
         }
