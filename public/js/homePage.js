@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (decodedToken.isPremiumUser) showPremiumStatus();
 
       const response = await axios.get(
-        `http://13.127.206.146/expense/getAllExpense?page=${page}&perPage=${perPage}`,
+        `/expense/getAllExpense?page=${page}&perPage=${perPage}`,
         { headers }
       );
       const { expenses, totalExpenses } = response.data;
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const addExpense = async (amount, description, category) => {
     try {
       const response = await axios.post(
-        "http://13.127.206.146/expense/addExpense",
+        "/expense/addExpense",
         { amount, description, category },
         { headers }
       );
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const deleteExpense = async (expenseId) => {
     try {
       const response = await axios.delete(
-        `http://13.127.206.146/expense/deleteExpense/${expenseId}`,
+        `/expense/deleteExpense/${expenseId}`,
         { headers }
       );
       if (response.status === 200) {
@@ -140,16 +140,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const buyPremium = async () => {
     try {
-      const response = await axios.get(
-        "http://13.127.206.146/purchase/premiumMembership",
-        { headers }
-      );
+      const response = await axios.get("/purchase/premiumMembership", {
+        headers,
+      });
       const options = {
         key: response.data.key_id,
         order_id: response.data.order.id,
         handler: async function (response) {
           const res = await axios.post(
-            "http://13.127.206.146/purchase/updateTransactionstatus",
+            "/purchase/updateTransactionstatus",
             {
               order_id: options.order_id,
               payment_id: response.razorpay_payment_id,
@@ -176,10 +175,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const downloadExpense = async () => {
     try {
-      const response = await axios.get(
-        "http://13.127.206.146/expense/downloadExpense",
-        { headers }
-      );
+      const response = await axios.get("/expense/downloadExpense", { headers });
       if (response.status === 200) {
         const a = document.createElement("a");
         a.href = response.data.fileURL;
@@ -195,10 +191,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const fetchDownloadHistory = async () => {
     try {
-      const response = await axios.get(
-        "http://13.127.206.146/expense/downloadHistory",
-        { headers }
-      );
+      const response = await axios.get("/expense/downloadHistory", { headers });
       elements.downloadList.innerHTML = "";
       response.data.forEach((download, index) => {
         const downloadDate = new Date(download.downloadDate);

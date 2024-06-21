@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const loadLeaderboard = async () => {
     try {
       const response = await axios.get(
-        "http://13.127.206.146/premium/showLeaderBoard",
+        "/premium/showLeaderBoard",
         { headers }
       );
       console.log(response);

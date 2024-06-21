@@ -12,12 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const res = await axios.post(
-        "http://13.127.206.146/password/resetPassword",
-        {
-          password: newPassword,
-        }
-      );
+      const res = await axios.post("/password/resetPassword", {
+        password: newPassword,
+      });
       if (res.status === 200) {
         alert(res.data.message);
       }

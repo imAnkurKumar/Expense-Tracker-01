@@ -6,7 +6,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const response = await axios.post("http://13.127.206.146/user/signUp", {
+    const response = await axios.post("/user/signUp", {
       name,
       email,
       password,
@@ -15,7 +15,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     if (response.status === 201) {
       alert("Sign-up successful: " + response.data.message);
       window.location.href = "/loginPage.html";
-      
+
       document.getElementById("username").value = "";
       document.getElementById("email").value = "";
       document.getElementById("password").value = "";
