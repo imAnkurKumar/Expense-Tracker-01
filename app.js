@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const fs = require("fs");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 
 const PORT = process.env.PORT;
 const userRouter = require("./routes/user");
@@ -29,11 +29,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "views")));
 
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, "access.log"),
-  { flags: "a" }
-);
-app.use(morgan("combined", { stream: accessLogStream }));
+// const accessLogStream = fs.createWriteStream(
+//   path.join(__dirname, "access.log"),
+//   { flags: "a" }
+// );
+// app.use(morgan("combined", { stream: accessLogStream }));
 app.use("/", userRouter);
 app.use("/user", userRouter);
 app.use("/", expenseRouter);
