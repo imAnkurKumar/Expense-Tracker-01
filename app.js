@@ -5,8 +5,6 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const fs = require("fs");
-
 const PORT = process.env.PORT;
 const userRouter = require("./routes/user");
 const expenseRouter = require("./routes/expense");
