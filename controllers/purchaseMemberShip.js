@@ -35,25 +35,18 @@ exports.updateTransactionstatus = async (req, res) => {
     if (!order) {
       return res.status(404).json({ error: "order not found" });
     }
-    const promise1 = order.update({
+    await order.update({
       paymentid: payment_id,
       status: "SUCCESSFUL",
     });
-    const promise2 = req.user.update({ isPremiumUser: true });
-    Promise.all([promise1, promise2])
-      .then(() => {
-        return res
-          .status(202)
-          .json({
-            succes: true,
-            message: "Transaction Successful",
-            token: userController.generateAccessToken(userId, undefined, true),
-          });
-      })
+    await req.user.update({ isPremiumUser: true });
 
-      .catch((error) => {
-        throw new Error(error);
-      });
+    const token = userController.generateAccessToken(userId, undefined, true);
+    return res.status(202).json({
+      succes: true,
+      message: "Transaction Successful",
+      token: token
+    });
   } catch (err) {
     console.log(err);
     res.status(403).json({ error: err, message: "something went wrong" });
